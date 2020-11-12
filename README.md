@@ -37,3 +37,4 @@ Front end:
  - Docker-compose
  - NGINX
  - Jenkins
+ - Ansible
