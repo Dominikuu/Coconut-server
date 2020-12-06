@@ -1,0 +1,10 @@
+django<2.0
+
+djangorestframework==3.8.1
+
+psycopg2
+uwsgi
+django-cors-headers
+django-paypal
+Pillow
+django-bootstrap3
