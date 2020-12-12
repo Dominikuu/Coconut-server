@@ -66,8 +66,8 @@ class Cart(object):
         """
         Count all items in the cart.
         """
-        # 在 django-shop-tutorial-master/shop/templates/shop/base.html 的 {% with total_items=cart|length %}
-        # 會被呼叫
+        
+        
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):

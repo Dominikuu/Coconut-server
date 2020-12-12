@@ -8,3 +8,7 @@ django-cors-headers
 django-paypal
 Pillow
 django-bootstrap3
+celery
+django-environ
+boto3
+redis

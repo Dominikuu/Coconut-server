@@ -12,8 +12,7 @@ from django.http import HttpResponse
 
 from django.middleware.csrf import get_token
 # Create your views here.
-@authentication_classes(())
-@permission_classes(())
+
 class MusicViewSet(viewsets.ModelViewSet):
     queryset = Music.objects.all()
     serializer_class = MusicSerializer
@@ -44,7 +43,3 @@ class MusicViewSet(viewsets.ModelViewSet):
         return Response(get_token(request), status=status.HTTP_200_OK)
     
         
-@authentication_classes([])
-@permission_classes([])
-def get_csrf_token(request):
-return HttpResponse(get_token(request))

@@ -1,5 +1,7 @@
 version: '3'
 services:
+    redis:
+      image: "redis:alpine"
 
     db:
       container_name: postgres
@@ -23,37 +25,49 @@ services:
         - api_data:/docker_api
         - ./log:/var/log/nginx
         depends_on:
-        - api
+        - web_api
 
-    api:
-        container_name: api-container
+    web_api:
+        container_name: web-api-container
         build: ./api
         restart: always
         # command: uwsgi  --emperor uwsgi.ini
         command: uwsgi --ini uwsgi.ini
-        # ports:
-        # - "8002:8000"
         volumes:
         - api_data:/docker_api
+        # ports:
+        # - "8002:8000" 
         depends_on:
         - db
 
-    # auto migrate django
+    migration_and_run_worker:
+        container_name: celery
+        build: ./api
+        volumes:
+          - api_data:/docker_api
+        command: bash -c "python manage.py migrate && celery -A coconut_server worker -l info"
+        depends_on:
+          - redis
+          - web_api
+    # # auto migrate django
     migration:
         build: ./api
         command:
             - /bin/sh
             - -c
             - |
+              pip install -r requirements.txt
               python manage.py collectstatic --noinput
               python manage.py migrate
               python manage.py makemigrations shop
               python manage.py makemigrations musics
               python manage.py migrate
+              python manage.py loaddata fixtures/*
         volumes:
         - api_data:/docker_api
         depends_on:
         - db
+        - web_api
 
 volumes:
   api_data:

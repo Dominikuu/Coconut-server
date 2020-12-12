@@ -8,6 +8,10 @@ class Category(models.Model):
     slug = models.SlugField(max_length=200,
                             db_index=True,
                             unique=True)
+    image = models.ImageField(
+            upload_to='categories/%Y/%m/%d',
+            blank=True
+        )
 
     class Meta:
         ordering = ('name',)
@@ -30,7 +34,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d',
                               blank=True)
     description = models.TextField(blank=True)
-    # 台灣價錢都是整數，所以可以設定 decimal_places=0
+
     price = models.DecimalField(max_digits=10, decimal_places=0)
     stock = models.PositiveIntegerField()
     available = models.BooleanField(default=True)

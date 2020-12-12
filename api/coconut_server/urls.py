@@ -29,8 +29,8 @@ def get_csrf_token(request):
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls, namespace='api'), name='api'),
-    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^music/', include(music.urls, namespace='music'), namespace='music'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^music/', include('musics.urls', namespace='music')),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
     url(r'^payment/', include('payment.urls', namespace='payment')),

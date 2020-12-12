@@ -29,7 +29,7 @@ class OrderItem(models.Model):
                               related_name='items')
     product = models.ForeignKey(Product,
                                 related_name='order_items')
-    # 台灣價錢都是整數，所以可以設定 decimal_places=0
+    
     price = models.DecimalField(max_digits=10, decimal_places=0)
     quantity = models.PositiveIntegerField(default=1)
 

@@ -25,7 +25,7 @@ SECRET_KEY = 'g9je0wxn58$wico&t@@k6@1$yu)gv$cch7yz*9bin4&8$m@ulb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_ALLOW_ALL = True # corsheaders
 
@@ -90,7 +90,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_rest_framework_tutorial.urls'
+ROOT_URLCONF = 'coconut_server.urls'
 
 # REST_FRAMEWORK = {
     
@@ -98,6 +98,9 @@ ROOT_URLCONF = 'django_rest_framework_tutorial.urls'
 #     'DEFAULT_PERMISSION_CLASSES': [],
 #     'UNAUTHENTICATED_USER': None,
 # }
+
+# Session
+CART_SESSION_ID = 'cart'
 
 TEMPLATES = [
     {
@@ -117,7 +120,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_rest_framework_tutorial.wsgi.application'
+# Celery
+BROKER_URL = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Taipei'
+
+WSGI_APPLICATION = 'coconut_server.wsgi.application'
 # django-paypal settings
 PAYPAL_RECEIVER_EMAIL = 'alanccl92@gmail.com'
 PAYPAL_TEST = True
