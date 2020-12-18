@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^(?P<category_slug>[-\w]+)/$',
         views.product_list,
         name='product_list_by_category'),
-    url(r'^(?P<product_id>\d+)/(?P<slug>[-\w]+)/$',
+    url(r'^detail/$',
         views.product_detail,
         name='product_detail')
     ]

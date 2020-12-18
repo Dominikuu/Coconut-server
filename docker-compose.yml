@@ -61,12 +61,15 @@ services:
               python manage.py migrate
               python manage.py makemigrations shop
               python manage.py makemigrations musics
+              python manage.py makemigrations orders
+              python manage.py makemigrations cart
               python manage.py migrate
               python manage.py loaddata fixtures/*
         volumes:
         - api_data:/docker_api
         depends_on:
         - db
+        - migration_and_run_worker
         - web_api
 
 volumes:
