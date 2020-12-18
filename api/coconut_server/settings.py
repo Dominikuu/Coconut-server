@@ -1,3 +1,7 @@
+
+
+
+
 """
 Django settings for django_rest_framework_tutorial project.
 
