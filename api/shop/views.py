@@ -20,12 +20,15 @@ def product_list(request, category_slug=None):
 
 
 def product_detail(request, product_id, slug):
-    product = get_object_or_404(Product,
-                                id=product_id,
-                                slug=slug,
-                                available=True)
-    cart_product_form = CartAddProductForm()
-    return render(request,
-                  'shop/product/detail.html',
-                  {'product': product,
-                   'cart_product_form': cart_product_form})
+    # body_unicode = request.body.decode('utf-8')
+    # body = json.loads(body_unicode)
+    # product_id = body['product_id']
+    # slug = body['slug']
+    # product = get_object_or_404(Product,
+    #                             id=product_id,
+    #                             slug=slug,
+    #                             available=True)
+    product = Product.objects.filter(id=product_id,
+                                slug=slug,available=True).values()
+    return JsonResponse({'product': list(product),
+                   'product_id': product_id, 'slug': slug})

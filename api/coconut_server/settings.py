@@ -25,15 +25,16 @@ SECRET_KEY = 'g9je0wxn58$wico&t@@k6@1$yu)gv$cch7yz*9bin4&8$m@ulb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['local-dominique']
 
-CORS_ORIGIN_ALLOW_ALL = True # corsheaders
+CORS_ORIGIN_ALLOW_ALL = False # corsheaders
 
-# CORS_ORIGIN_WHITELIST = (
-#     # 'google.com',
-#     # 'hostname.example.com',
-#     '127.0.0.1:8002',
-# )
+CORS_ORIGIN_WHITELIST = (
+    # 'google.com',
+    # 'hostname.example.com',
+    'http://local-dominique',
+    'http://localhost:4200',
+)
 
 CORS_ALLOW_METHODS = [
  #   'DELETE',

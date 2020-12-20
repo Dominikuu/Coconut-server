@@ -1,7 +1,7 @@
 [
     {
         "model": "shop.category",
-        "pk": 1,
+        "pk": "1",
         "fields": {
             "name": "pink-bag",
             "slug": "pink-bag",
@@ -10,7 +10,7 @@
     },
     {
         "model": "shop.category",
-        "pk": 2,
+        "pk": "2",
         "fields": {
             "name": "blue-bag",
             "slug": "blue-bag",
@@ -19,7 +19,7 @@
     },
     {
         "model": "shop.category",
-        "pk": 3,
+        "pk": "3",
         "fields": {
             "name": "yellow-bag",
             "slug": "yellow-bag",
@@ -28,7 +28,7 @@
     },
     {
         "model": "shop.category",
-        "pk": 4,
+        "pk": "4",
         "fields": {
             "name": "green-bag",
             "slug": "green-bag",
@@ -37,7 +37,7 @@
     },
     {
         "model": "shop.product",
-        "pk": 1,
+        "pk": "1",
         "fields": {
             "category": 1,
             "name": "pink D",
@@ -53,7 +53,7 @@
     },
     {
         "model": "shop.product",
-        "pk": 2,
+        "pk": "2",
         "fields": {
             "category": 1,
             "name": "pink E",
@@ -69,7 +69,7 @@
     },
     {
         "model": "shop.product",
-        "pk": 3,
+        "pk": "3",
         "fields": {
             "category": 2,
             "name": "blue M",
@@ -85,7 +85,7 @@
     },
     {
         "model": "shop.product",
-        "pk": 4,
+        "pk": "4",
         "fields": {
             "category": 2,
             "name": "blue D",
@@ -101,7 +101,7 @@
     },
     {
         "model": "shop.product",
-        "pk": 5,
+        "pk": "5",
         "fields": {
             "category": 2,
             "name": "blue O",
@@ -117,7 +117,7 @@
     },
     {
         "model": "shop.product",
-        "pk": 6,
+        "pk": "6",
         "fields": {
             "category": 4,
             "name": "green D",
@@ -133,7 +133,7 @@
     },
     {
         "model": "shop.product",
-        "pk": 7,
+        "pk": "7",
         "fields": {
             "category": 4,
             "name": "green E",

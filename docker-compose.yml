@@ -60,6 +60,8 @@ services:
               python manage.py collectstatic --noinput
               python manage.py migrate
               python manage.py makemigrations shop
+              python manage.py makemigrations cart
+              python manage.py makemigrations orders
               python manage.py makemigrations musics
               python manage.py migrate
               python manage.py loaddata fixtures/*
