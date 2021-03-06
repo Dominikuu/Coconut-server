@@ -15,22 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from rest_framework.routers import DefaultRouter
-from musics import views
+from user import views as userViews
 from django.http import HttpResponse
-from django.middleware.csrf import get_token
-
-router = DefaultRouter()
-router.register(r'music', views.MusicViewSet, base_name='music')
-
-def get_csrf_token(request):
-    return HttpResponse(get_token(request))
-
+from rest_framework_jwt.views import (obtain_jwt_token,
+                                        verify_jwt_token,
+                                        refresh_jwt_token)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(router.urls, namespace='api'), name='api'),
+    url(r'^api-token-auth', obtain_jwt_token),
+    url(r'^api-token-refresh', refresh_jwt_token),
+    url(r'^api-token-verify', verify_jwt_token),
+    url(r'^api-register-user', userViews.CreateUserView.as_view()),
+    url(r'^api-login-user', userViews.LoginUserView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^music/', include('musics.urls', namespace='music')),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
     url(r'^payment/', include('payment.urls', namespace='payment')),

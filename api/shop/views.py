@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.response import Response
-from cart.forms import CartAddProductForm
 from .models import Category, Product
 
 

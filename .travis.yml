@@ -1,0 +1,32 @@
+sudo: required
+
+language: ruby
+
+before_deploy:
+    - zip -r latest *
+    - test -d dpl_cd_upload || mkdir dpl_cd_upload
+    - mv latest.zip dpl_cd_upload/latest.zip
+
+deploy:
+    - provider: s3
+        region: ap-northeast-1
+        env: UrlShortenerApi-env
+        bucket: "coconut-codeploy"
+        local_dir: dpl_cd_upload
+        skip_cleanup: true
+        on:
+            branch: master
+        access_key_id: $AWS_ACCESS_KEY
+        secret_access_key: $AWS_SECRET_PASSWORD
+    - provider: codedeploy
+        access_key_id: $AWS_ACCESS_KEY
+        secret_access_key: $AWS_SECRET_PASSWORD
+        bucket: "coconut-codeploy"
+        key: latest.zip
+        application: CodeDeploy-coconut
+        deployment_group: master
+        region: ap-northeast-1
+    on:
+      branch: master
+after_deploy:
+    - ./build.sh

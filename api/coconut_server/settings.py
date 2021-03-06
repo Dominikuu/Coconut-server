@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-
+import datetime
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +25,7 @@ SECRET_KEY = 'g9je0wxn58$wico&t@@k6@1$yu)gv$cch7yz*9bin4&8$m@ulb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['local-dominique']
+ALLOWED_HOSTS = ['local-dominique', 'localhost']
 
 CORS_ORIGIN_ALLOW_ALL = False # corsheaders
 
@@ -69,15 +69,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap3',
     'corsheaders', # django-cors-headers
     'rest_framework',
-    'musics',
+    'rest_framework.authtoken',
     'paypal.standard.ipn',
     'shop',
     'cart',
     'orders',
     'payment',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -87,18 +87,32 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'coconut_server.middleware.jwt_authenization.JWTAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'coconut_server.urls'
 
-# REST_FRAMEWORK = {
-    
-#     'DEFAULT_AUTHENTICATION_CLASSES': [],
-#     'DEFAULT_PERMISSION_CLASSES': [],
-#     'UNAUTHENTICATED_USER': None,
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
+    ),
+     'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+
+}
+# SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  #SMTP伺服器
+EMAIL_PORT = 587  #TLS通訊埠號
+EMAIL_USE_TLS = True  #開啟TLS(傳輸層安全性)
+EMAIL_HOST_USER = 'alanccl92@gmail.com'  #寄件者電子郵件
+EMAIL_HOST_PASSWORD = 'nujdzzbcggphfucz'  #Gmail應用程式的密碼
 
 # Session
 CART_SESSION_ID = 'cart'
@@ -115,7 +129,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.context_processors.cart',
+                
             ],
         },
     },
@@ -155,6 +169,18 @@ DATABASES = {
     }
 }
 
+
+JWT_AUTH = {
+    # how long the original token is valid for
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+
+    # allow refreshing of tokens
+    'JWT_ALLOW_REFRESH': True,
+
+    # this is the maximum time AFTER the token was issued that
+    # it can be refreshed.  exprired tokens can't be refreshed.
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
+}
 
 
 # Password validation
