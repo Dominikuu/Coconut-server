@@ -1,7 +1,7 @@
 [
     {
         "model": "shop.category",
-        "pk": 1,
+        "pk": "1",
         "fields": {
             "name": "pink-bag",
             "slug": "pink-bag",
@@ -10,7 +10,7 @@
     },
     {
         "model": "shop.category",
-        "pk": 2,
+        "pk": "2",
         "fields": {
             "name": "blue-bag",
             "slug": "blue-bag",
@@ -19,7 +19,7 @@
     },
     {
         "model": "shop.category",
-        "pk": 3,
+        "pk": "3",
         "fields": {
             "name": "yellow-bag",
             "slug": "yellow-bag",
@@ -28,7 +28,7 @@
     },
     {
         "model": "shop.category",
-        "pk": 4,
+        "pk": "4",
         "fields": {
             "name": "green-bag",
             "slug": "green-bag",
@@ -37,114 +37,193 @@
     },
     {
         "model": "shop.product",
-        "pk": 1,
+        "pk": "1",
         "fields": {
             "category": 1,
             "name": "pink D",
             "slug": "pink-D",
-            "image": "products/2019/09/09/pink_package_D-01.png",
+            "image": "https://elasticbeanstalk-ap-northeast-1-356053176662.s3-ap-northeast-1.amazonaws.com/resources/pd1.jpg",
             "description": "The most famous D pink package",
             "price": "55.00",
             "stock": 5,
             "available": true,
             "created": "2019-09-05T14:00:00Z",
-            "updated": "2019-09-09T14:06:54.870Z"
+            "updated": "2019-09-09T14:06:54.870Z",
+            "size": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+            "variation": [
+                {
+                    "Blue": "#1e90ff",
+                    "Red": "#ff0000",
+                    "DimGray": "#696969"
+                }
+            ]
         }
     },
     {
         "model": "shop.product",
-        "pk": 2,
+        "pk": "2",
         "fields": {
             "category": 1,
             "name": "pink E",
             "slug": "pink-E",
-            "image": "products/2019/09/09/pink-package-E-01.png",
+            "image": "https://elasticbeanstalk-ap-northeast-1-356053176662.s3-ap-northeast-1.amazonaws.com/resources/pd2.jpg",
             "description": "",
             "price": "44.00",
             "stock": 3,
             "available": true,
             "created": "2019-09-09T14:08:10Z",
-            "updated": "2019-09-11T12:09:05.214Z"
+            "updated": "2019-09-11T12:09:05.214Z",
+            "size": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+            "variation": [
+                "Blue",
+                "Red",
+                "DimGray"
+            ]
         }
     },
     {
         "model": "shop.product",
-        "pk": 3,
+        "pk": "3",
         "fields": {
             "category": 2,
             "name": "blue M",
             "slug": "blue-M",
-            "image": "products/2019/09/11/blue_pk_M-01.png",
+            "image": "https://elasticbeanstalk-ap-northeast-1-356053176662.s3-ap-northeast-1.amazonaws.com/resources/pd3.jpg",
             "description": "This is a blue package M",
             "price": "22.00",
             "stock": 2,
             "available": true,
             "created": "2019-09-11T12:07:49Z",
-            "updated": "2019-09-11T12:10:07.422Z"
+            "updated": "2019-09-11T12:10:07.422Z",
+            "size": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+            "variation": [
+                "Blue",
+                "Red",
+                "DimGray"
+            ]
         }
     },
     {
         "model": "shop.product",
-        "pk": 4,
+        "pk": "4",
         "fields": {
             "category": 2,
             "name": "blue D",
             "slug": "blue-D",
-            "image": "products/2019/09/11/blue_pk_D-01.png",
+            "image": "https://elasticbeanstalk-ap-northeast-1-356053176662.s3-ap-northeast-1.amazonaws.com/resources/pd4.jpg",
             "description": "This is a blue package D",
             "price": "6.00",
             "stock": 6,
             "available": true,
             "created": "2019-09-11T12:09:17Z",
-            "updated": "2019-09-11T12:09:49.612Z"
+            "updated": "2019-09-11T12:09:49.612Z",
+            "size": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+            "variation": [
+                "Blue",
+                "Red",
+                "DimGray"
+            ]
         }
     },
     {
         "model": "shop.product",
-        "pk": 5,
+        "pk": "5",
         "fields": {
             "category": 2,
             "name": "blue O",
             "slug": "blue-O",
-            "image": "products/2019/09/11/blue_pk_O-01.png",
+            "image": "https://elasticbeanstalk-ap-northeast-1-356053176662.s3-ap-northeast-1.amazonaws.com/resources/pd5.jpg",
             "description": "This is a blue package O",
             "price": "56.00",
             "stock": 56,
             "available": true,
             "created": "2019-09-11T12:10:10Z",
-            "updated": "2019-09-11T12:10:33.242Z"
+            "updated": "2019-09-11T12:10:33.242Z",
+            "size": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+            "variation": [
+                "Blue",
+                "Red",
+                "DimGray"
+            ]
         }
     },
     {
         "model": "shop.product",
-        "pk": 6,
+        "pk": "6",
         "fields": {
             "category": 4,
             "name": "green D",
             "slug": "green-D",
-            "image": "products/2019/09/11/package_green_D.png",
+            "image": "https://elasticbeanstalk-ap-northeast-1-356053176662.s3-ap-northeast-1.amazonaws.com/resources/pd6.jpg",
             "description": "This is a green package D",
             "price": "20.00",
             "stock": 2,
             "available": true,
             "created": "2019-09-11T12:16:42Z",
-            "updated": "2019-09-11T12:18:10.669Z"
+            "updated": "2019-09-11T12:18:10.669Z",
+            "size": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+            "variation": [
+                "Blue",
+                "Red",
+                "DimGray"
+            ]
         }
     },
     {
         "model": "shop.product",
-        "pk": 7,
+        "pk": "7",
         "fields": {
             "category": 4,
             "name": "green E",
             "slug": "green-E",
-            "image": "products/2019/09/11/package_green_E.png",
+            "image": "https://elasticbeanstalk-ap-northeast-1-356053176662.s3-ap-northeast-1.amazonaws.com/resources/pd7.jpg",
             "description": "This is a green package E",
             "price": "45.00",
             "stock": 45,
             "available": true,
             "created": "2019-09-11T12:18:12Z",
-            "updated": "2019-09-11T12:18:32.869Z"
+            "updated": "2019-09-11T12:18:32.869Z",
+            "size": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+            "variation": [
+                "Blue",
+                "Red",
+                "DimGray"
+            ]
         }
     }
 ]

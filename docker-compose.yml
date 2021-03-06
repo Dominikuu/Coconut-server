@@ -59,9 +59,13 @@ services:
               pip install -r requirements.txt
               python manage.py collectstatic --noinput
               python manage.py migrate
+              python manage.py makemigrations user
               python manage.py makemigrations shop
-              python manage.py makemigrations musics
+              python manage.py makemigrations cart
+              python manage.py makemigrations cartItem
+              python manage.py makemigrations orders
               python manage.py migrate
+              echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'pass')" | python manage.py shell
               python manage.py loaddata fixtures/*
         volumes:
         - api_data:/docker_api
