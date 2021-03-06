@@ -5,5 +5,3 @@ before_deploy:
 	- test -d dpl_cd_upload || mkdir dpl_cd_upload
 	- mv latest.zip dpl_cd_upload/latest.zip
 
-after_deploy:
-	- ./build.sh
