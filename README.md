@@ -1,6 +1,5 @@
 # Coconut-server
-docker container stop $(docker container ls -aq)
-docker container rm $(docker container ls -aq)
+
 
 
 web_api:
@@ -32,7 +31,7 @@ Front end:
  - Angular
  - HTML/SCSS
  - Typescript
- - GA
+ - GA (TO DO!)
  
  Backend:
  - Django
@@ -46,11 +45,11 @@ Front end:
  - PostgreSQL
  
  Deploy:
- - AWS (EC2, S3, CodeDeploy)
+ - AWS (EC2, S3)
  - Docker
  - Docker-compose
  - NGINX
- - Travis-ci
+ - Travis-ci (TO DO!)
 
 ```
 python3 -m venv venv
@@ -75,3 +74,9 @@ Migrate database
 In general cases:
 python manage.py makemigrations
 python manage.py migrate
+
+Docker
+```
+docker container stop $(docker container ls -aq)
+docker container rm $(docker container ls -aq)
+```
