@@ -35,7 +35,8 @@ Front end:
  - Docker
  - Docker-compose
  - NGINX
- - Travis-ci (TO DO!)
+ - Travis-ci (TODO!)
+ - Certbot (TODO!)
 
 ```
 python3 -m venv venv
