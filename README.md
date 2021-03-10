@@ -1,19 +1,5 @@
 # Coconut-server
 
-
-
-web_api:
-        container_name: web-api-container
-        build: ./api
-        restart: always
-        # command: uwsgi  --emperor uwsgi.ini
-        command: uwsgi --ini uwsgi.ini
-        # ports:
-        # - "8002:8000"
-        volumes:
-        - api_data:/docker_api  //hot reload suspend 
-        depends_on:
-sudo apt-get install libpq-dev
 ### 功能
 
 - 第三方登入
