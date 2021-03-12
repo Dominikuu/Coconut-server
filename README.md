@@ -1,5 +1,7 @@
 # Coconut-server
 
+GUI: https://github.com/Dominikuu/Coconut-Gui
+
 ### 功能
 
 - 第三方登入
